@@ -6,14 +6,14 @@
 
 ## Features
 ### Console
-When you open the program with a **victim** or ***not*** you can type *"help"* to get *all* the commands
-![image](https://github.com/Turnrp/Ultimate-Backdoor/assets/70816015/e1df1082-f69a-493f-b216-a2cd7728ee9e)
+When you open the program with a **victim** or ***not*** you can type *"help"* to get *all* the commands <br />
+![image](https://github.com/Turnrp/Ultimate-Backdoor/assets/70816015/e1df1082-f69a-493f-b216-a2cd7728ee9e) <br />
 ### File Explorer
-This is like any generic file explorer that I *will** be expanding on to make it **better** but for now you can do the basics.
-![image](https://github.com/Turnrp/Ultimate-Backdoor/assets/70816015/8466d15f-c27b-4c18-b774-638ae055507a)
+This is like any generic file explorer that I *will** be expanding on to make it **better** but for now you can do the basics. <br />
+![image](https://github.com/Turnrp/Ultimate-Backdoor/assets/70816015/8466d15f-c27b-4c18-b774-638ae055507a) <br />
 ### Tasks (WIP)
-There will be more tasks added but for now you can do some basic things like setting timeout time and uploading files
-![image](https://github.com/Turnrp/Ultimate-Backdoor/assets/70816015/70d0c94d-6b1c-47f2-b971-8f08b90f4057)
+There will be more tasks added but for now you can do some basic things like setting timeout time and uploading files <br />
+![image](https://github.com/Turnrp/Ultimate-Backdoor/assets/70816015/70d0c94d-6b1c-47f2-b971-8f08b90f4057) <br />
 ### Side Bar
-![image](https://github.com/Turnrp/Ultimate-Backdoor/assets/70816015/af62a95c-66bc-4ccc-b587-79bfde238f01)
-This is where you can switch tabs with ease, change your appearance mode to either "Dark" *Default*, "Light" *Your crazy*, or "System" *Defaults to your system's appearance*, and Exit which is self-explanatory and does the same thing the **X** does. 
+![image](https://github.com/Turnrp/Ultimate-Backdoor/assets/70816015/af62a95c-66bc-4ccc-b587-79bfde238f01) <br />
+This is where you can switch tabs with ease, change your appearance mode to either "Dark" *Default*, "Light" *Your crazy*, or "System" *Defaults to your system's appearance*, and Exit which is self-explanatory and does the same thing the **X** does. <br />
