@@ -13,7 +13,7 @@ os.chdir("C:\\Users\\" + User)
 
 print(socket.gethostbyname(socket.gethostname()))
 s = socket.socket()
-port = 8080
+port = 8080  # Change this to the port you wanna use
 s.bind(("", port))
 
 print("Listening...")
@@ -47,18 +47,33 @@ while True:
             sending = "Uploaded Sucessfully."
         elif "[GetDIR]" in sent:
             # print("sending dir")
-            sending = "DIR: " + os.curdir
-        elif sent == "are you connected?":
-            sending = "yes, I am connected."
+            sending = "DIR: " + os.getcwd()
         elif sent == "help":
             result = subprocess.run(sent, stdout=subprocess.PIPE)
-            sending = (
-                "download <File> - Download File Specified\nupload <File> - Upload File Specified\nprint <File> - Prints File Specified\ndir - Prints Current Working Directory\ncd <Dir> - Moves Directory\nget <size> <File> - Get Size in Bytes of File Specified\nset bytes - Sets Bytes To Amount Specifed\nset timeout <float> - Sets Timeout to Amount Specified\nmkdir <NAME> - Makes a new directory with name specified\nrem <FILE> - Removes File with name sepcified\n-OS-\n"
-                + result.stdout.decode()
-            )
+            sending = result.stdout.decode()
         elif "print" in sent:
             File = sent.replace("print ", "")
             sending = open(File, "r").read()
+        elif "move" in sent:
+            unpacked = sent.replace("move ", "").split('"')
+            for i in unpacked:
+                if i == "" or i == " ":
+                    unpacked.remove(i)
+            print(unpacked)
+            oldDest, File, dest = unpacked
+            os.rename(oldDest + "\\" + File, dest + "\\" + File)
+            sending = "Moved " + File + " to " + dest
+        elif "copy" in sent:
+            unpacked = sent.replace("copy ", "").split('"')
+            for i in unpacked:
+                if i == "" or i == " ":
+                    unpacked.remove(i)
+            print(unpacked)
+            oldDest, File, dest = unpacked
+            with open(oldDest + "\\" + File) as r:
+                with open(dest + "\\" + File, "w") as f:
+                    f.write(r.read())
+            sending = "Copied " + File + " to " + dest
         elif "rem" in sent:
             Name = sent.replace("rem ", "")
             if Path.suffix:
@@ -100,4 +115,5 @@ while True:
     except Exception as e:
         sending = str(e)
 
+    # print(sending)
     c.send(sending.encode())
