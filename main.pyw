@@ -13,6 +13,22 @@ if not exists("IpPortAddr.txt"):
     with open("IpPortAddr.txt", "x") as f:
         f.write("localhost\n8080")
 
+HelpMessage = """download <File> - Download File Specified
+    upload <File> - Upload File Specified
+    print <File> - Prints File Specified
+    dir - Prints Current Working Directory
+    cd <Dir> - Moves Directory
+    get <size> <File> - Get Size in Bytes of File Specified
+    set bytes - Sets Bytes To Amount Specifed
+    set timeout <float> - Sets Timeout to Amount Specified
+    mkdir <NAME> - Makes a new directory with name specified
+    rem <FILE> - Removes File with name sepcified
+    move "<oldDest>" "<File>" "<newDest>" - Moves file to newDest (Quotes so if a directory has a space it still works)
+    -OS-
+    """.replace(
+    "   ", ""
+)
+
 
 # Create the main application
 class InterfaceApp(ctk.CTk):
@@ -60,7 +76,10 @@ class InterfaceApp(ctk.CTk):
 
         # Create Tab Side Buttons
         self.console_button = ctk.CTkButton(
-            self.side_bar, text="Console", command=lambda: self.OpenTab("Console")
+            self.side_bar,
+            text="Console",
+            command=lambda: self.OpenTab("Console"),
+            image=ctk.CTkImage(Image.open("Images\\console.png")),
         )
         self.console_button.pack(fill="x", padx=35, pady=10)
 
@@ -68,6 +87,7 @@ class InterfaceApp(ctk.CTk):
             self.side_bar,
             text="File Explorer",
             command=lambda: self.OpenTab("File Explorer"),
+            image=ctk.CTkImage(Image.open("Images\\explorer.png")),
         )
         self.file_explorer_button.pack(fill="x", padx=35, pady=10)
 
@@ -75,12 +95,16 @@ class InterfaceApp(ctk.CTk):
             self.side_bar,
             text="Tasks",
             command=lambda: self.OpenTab("Tasks"),
+            image=ctk.CTkImage(Image.open("Images\\tasks.png")),
         )
         self.tasks_button.pack(fill="x", padx=35, pady=10)
 
         # Bottom Sidebar Buttons
         self.exit_button = ctk.CTkButton(
-            self.side_bar, text="Exit", command=self.OnClosed
+            self.side_bar,
+            text="Exit",
+            command=self.OnClosed,
+            image=ctk.CTkImage(Image.open("Images\\logout.png")),
         )
         self.exit_button.pack(fill="x", side="bottom", padx=35, pady=20)
 
@@ -105,9 +129,7 @@ class InterfaceApp(ctk.CTk):
 
         self.cmd_entry = ctk.CTkEntry(self.console_tab, placeholder_text="Send")
         self.cmd_entry.pack(side="left", expand=True, fill="x")
-        self.cmd_entry.bind(
-            "<Return>", lambda: self.send_command(self.cmd_entry.get())
-        )  # Bind Enter key press
+        self.cmd_entry.bind("<Return>", self.cmd_send_command)  # Bind Enter key press
 
         self.send_button = ctk.CTkButton(
             self.console_tab,
@@ -118,20 +140,69 @@ class InterfaceApp(ctk.CTk):
 
         # Create File Explorer Tab
         self.file_explorer_tab = self.tab_control.add("File Explorer")
+        self.selected_file = "None"
+
+        self.file_top_row = ctk.CTkFrame(self.file_explorer_tab, height=150)
+        self.file_top_row.pack(fill="x", side="top", padx=10)
+
+        self.file_top_row.grid_columnconfigure(7, weight=1)
 
         self.update_button = ctk.CTkButton(
-            self.file_explorer_tab, text="Update Tab", command=self.UpdateFileExplorer
+            self.file_top_row,
+            text="Update Tab",
+            command=self.UpdateFileExplorer,
+            width=140 / 1.3,
+            image=ctk.CTkImage(Image.open("Images\\update.png")),
         )
-        self.update_button.pack(side="top", padx=10, pady=1)
+        self.update_button.grid(row=0, column=0, padx=10, pady=5)
 
         self.directory_entry = ctk.CTkEntry(
-            self.file_explorer_tab, placeholder_text="..\\"
+            self.file_top_row, placeholder_text="..\\", width=280
         )
-        self.directory_entry.pack(fill="x", padx=10, pady=10)
+        self.directory_entry.grid(row=0, column=1, padx=15, pady=5, sticky="w")
         self.directory_entry.bind(
-            "<Return>",
-            lambda: self.UpdateFileExplorer(),
+            "<Return>", self.dir_FileExplorer
         )  # Bind Enter key press
+
+        self.move_button = ctk.CTkButton(
+            self.file_top_row,
+            width=28,
+            text="",
+            image=ctk.CTkImage(Image.open("Images\\cutmove.png")),
+            command=self.move_file,
+        )
+        self.move_button.grid(row=0, column=2, padx=5, pady=5, sticky="w")
+
+        self.copy_button = ctk.CTkButton(
+            self.file_top_row,
+            width=28,
+            text="",
+            image=ctk.CTkImage(Image.open("Images\\copy.png")),
+            command=self.copy_file,
+        )
+        self.copy_button.grid(row=0, column=4, padx=5, pady=5, sticky="w")
+
+        self.download_button = ctk.CTkButton(
+            self.file_top_row,
+            width=28,
+            text="",
+            image=ctk.CTkImage(Image.open("Images\\download.png")),
+            command=self.download_file,
+        )
+        self.download_button.grid(row=0, column=5, padx=5, pady=5, sticky="w")
+
+        self.delete_button = ctk.CTkButton(
+            self.file_top_row,
+            width=28,
+            text="",
+            image=ctk.CTkImage(Image.open("Images\\delete.png")),
+            command=self.delete_file,
+        )
+        self.delete_button.grid(row=0, column=6, padx=5, pady=5, sticky="w")
+
+        self.selected_text = ctk.CTkEntry(self.file_top_row, placeholder_text=".")
+        self.selected_text.grid(row=0, column=7, padx=5, pady=5, sticky="ew")
+        self.selected_text.configure(state="disabled")
 
         self.file_explorer_side_bar = ctk.CTkFrame(self.file_explorer_tab)
         self.file_explorer_side_bar.pack(
@@ -166,7 +237,10 @@ class InterfaceApp(ctk.CTk):
 
         # File Upload
         self.upload_button = ctk.CTkButton(
-            self.tasks_frame, text="Upload File", command=self.Upload
+            self.tasks_frame,
+            text="Upload File",
+            command=self.Upload,
+            image=ctk.CTkImage(Image.open("Images\\upload.png")),
         )
         self.upload_button.pack(padx=10, pady=10)
 
@@ -229,17 +303,60 @@ class InterfaceApp(ctk.CTk):
         if messagebox.askokcancel("Quit", "Do you want to quit?"):
             self.destroy()
 
-    def cmd_send_command(self):
+    def cmd_send_command(self, idk="", somethingtofixthis=""):
         self.send_command(self.cmd_entry.get())
+
+    def move_file(self, da="", no=""):
+        self.RawCommand(
+            "move "
+            + '"'
+            + self.selected_file.replace(self.selected_file.split("\\")[-1], "")
+            + '"'
+            + self.selected_file.split("\\")[-1]
+            + '"'
+            + self.directory_entry.get()
+            + '"'
+        )
+        self.selected_file = ""
+        self.UpdateFileExplorer()
+
+    def copy_file(self, da="", no=""):
+        self.RawCommand(
+            "copy "
+            + '"'
+            + self.selected_file.replace(self.selected_file.split("\\")[-1], "")
+            + '"'
+            + self.selected_file.split("\\")[-1]
+            + '"'
+            + self.directory_entry.get()
+            + '"'
+        )
+        self.selected_file = ""
+        self.UpdateFileExplorer()
+
+    def delete_file(self, da="", no=""):
+        if messagebox.askokcancel(
+            "Remove", f"Do you want to remove {self.selected_file}?"
+        ):
+            self.RawCommand("rem " + self.selected_file)
+            self.selected_file = ""
+            self.UpdateFileExplorer()
+
+    def download_file(self, mama="", mia=""):
+        file = self.RawCommand("download " + self.selected_file)
+        with open(self.selected_file, "w") as f:
+            f.write(file.replace("file: ", "", 1).split(" : ", 1)[1])
 
     def send_command(self, command: str):
         clearing = False
         connection = None
+
+        response = "NULL"
         try:
             self.console_text.configure(state="normal")
 
             if command == "":
-                response = "NULL"
+                pass
             elif command == "cls" or command == "clear":
                 response = ""
                 clearing = True
@@ -263,6 +380,9 @@ class InterfaceApp(ctk.CTk):
                 response = connection.recv(self.Bytes).decode()
         except Exception as e:
             response = str(e)
+
+        if command == "help":
+            response = HelpMessage + response
 
         if not clearing:
             if "file: " in response:
@@ -308,36 +428,48 @@ class InterfaceApp(ctk.CTk):
     def SendUpload(self, Name, Contents):
         self.RawCommand("upload " + Name + " " + Contents)
 
-    def UpdateFileExplorer(self):
+    def dir_FileExplorer(self, adasdsa="", asnjdasd=""):
+        self.UpdateFileExplorer()
+
+    def UpdateFileExplorer(self, Name=""):
+        if Name:
+            self.directory_entry.delete(0, len(self.directory_entry.get()))
+            self.directory_entry.insert(0, Name)
+
         dirEntryText = self.directory_entry.get()
-        isFile = Path(dirEntryText).suffix
+        DIR = self.RawCommand("cd " + dirEntryText)
 
-        if isFile:
-            file = self.RawCommand("download " + dirEntryText)
-            with open(dirEntryText, "w") as f:
-                f.write(file.replace("file: ", "", 1).split(" : ", 1)[1])
-        else:
-            DIR = self.RawCommand("cd " + dirEntryText)
-            if "DIR:" in DIR:
-                self.directory_entry.delete(0, len(self.directory_entry.get()))
-                self.directory_entry.insert(0, DIR.replace("DIR: ", ""))
-            directoryList = self.RawCommand("dir").splitlines()
-            self.button_frame.pack(fill="both", expand=True, padx=10, pady=10)
+        if "DIR:" in DIR:
+            self.directory_entry.delete(0, len(self.directory_entry.get()))
+            self.directory_entry.insert(0, DIR.replace("DIR: ", ""))
+        directoryList = self.RawCommand("dir").splitlines()
+        self.button_frame.pack(fill="both", expand=True, padx=10, pady=10)
 
-            for i in range(0, len(self.file_buttons)):
-                self.file_buttons[0].destroy()
-                self.file_buttons.pop(0)
+        for i in range(0, len(self.file_buttons)):
+            self.file_buttons[0].destroy()
+            self.file_buttons.pop(0)
 
-            for i in directoryList:
-                self.add_file_button(i)
-            self.add_file_button("..\\")
+        for i in directoryList:
+            self.add_file_button(i)
+        self.add_file_button("..\\")
 
         self.button_frame._parent_canvas.yview_moveto(0.0)
 
     def FileButtonPress(self, Name):
-        self.directory_entry.delete(0, len(self.directory_entry.get()))
-        self.directory_entry.insert(0, Name)
-        self.UpdateFileExplorer()
+        isFile = Path(Name).suffix
+        if isFile:
+            self.selected_file = (
+                self.RawCommand("[GetDIR]").replace("DIR: ", "") + "\\" + Name
+            )
+            self.selected_text.configure(state="normal")
+            self.selected_text.delete(0, len(self.selected_text.get()))
+            self.selected_text.insert(0, self.selected_file)
+            self.selected_text.configure(state="disabled")
+            """file = self.RawCommand("download " + Name) # Download Code
+            with open(Name, "w") as f:
+                f.write(file.replace("file: ", "", 1).split(" : ", 1)[1])"""
+        else:
+            self.UpdateFileExplorer(Name)
 
     def add_file_button(self, Name):
         new_button = ctk.CTkButton(
