@@ -9,8 +9,15 @@
 When you open the program with a **victim** or ***not*** you can type *"help"* to get *all* the commands <br />
 ![image](https://github.com/Turnrp/Ultimate-Backdoor/assets/70816015/e1df1082-f69a-493f-b216-a2cd7728ee9e) <br />
 ### File Explorer
-This is like any generic file explorer that I *will** be expanding on to make it **better** but for now you can do the basics. <br />
-![image](https://github.com/Turnrp/Ultimate-Backdoor/assets/70816015/8466d15f-c27b-4c18-b774-638ae055507a) <br />
+The File Explorer has been renewed!
+![image](https://github.com/Turnrp/Ultimate-Backdoor/assets/70816015/d53c84ed-c558-4396-9cf2-8cd00f8794e9)
+If you select a file it will show at the top right saying the path to it.
+Once you select a file and either go to a desired location or not, you can press one of the buttons to do that task.
+New Features:
+- Cutting / Moving
+- Copying
+- Downloading (Existed But Was Bad)
+- Removing (Also Existed But Was Not In The Explorer)
 ### Tasks (WIP)
 There will be more tasks added but for now you can do some basic things like setting timeout time and uploading files <br />
 ![image](https://github.com/Turnrp/Ultimate-Backdoor/assets/70816015/70d0c94d-6b1c-47f2-b971-8f08b90f4057) <br />
