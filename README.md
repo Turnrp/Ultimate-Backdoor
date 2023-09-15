@@ -19,7 +19,7 @@ New Features:
 - Copying
 - Downloading *(Existed but was bad)*
 - Removing *(Also existed but wasn't in the file explorer yet)*
-### Tasks (WIP)
+### Tasks
 - Timeout Time *(Amount of time to wait until it times out)*
 - Byte Time *(Amount of bytes accepted through socket)*
 - File Upload *(Upload file of choice)*
