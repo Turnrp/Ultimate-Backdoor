@@ -23,7 +23,7 @@ New Features:
 - Timeout Time *(Amount of time to wait until it times out)*
 - Byte Time *(Amount of bytes accepted through socket)*
 - File Upload *(Upload file of choice)*
-- *If you have any cool ideas that would be helpful let me know in the issues tab)*
+- *If you have any cool ideas that would be **helpful** let me know in the **issues tab***
 ![image](https://github.com/Turnrp/Ultimate-Backdoor/assets/70816015/7471e2df-58a5-4a02-8594-551f222506fc) <br />
 ### Side Bar
 ![268121563-d53c84ed-c558-4396-9cf2-8cd00f8794e9 (1)](https://github.com/Turnrp/Ultimate-Backdoor/assets/70816015/657981ec-98d0-4596-b864-99680d0c91c1) <br />
