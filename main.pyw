@@ -14,18 +14,23 @@ if not exists("IpPortAddr.txt"):
         f.write("localhost\n8080")
 
 HelpMessage = """download <File> - Download File Specified
-    upload <File> - Upload File Specified
-    print <File> - Prints File Specified
-    dir - Prints Current Working Directory
-    cd <Dir> - Moves Directory
-    get <size> <File> - Get Size in Bytes of File Specified
-    set bytes - Sets Bytes To Amount Specifed
-    set timeout <float> - Sets Timeout to Amount Specified
-    mkdir <NAME> - Makes a new directory with name specified
-    rem <FILE> - Removes File with name sepcified
-    move "<oldDest>" "<File>" "<newDest>" - Moves file to newDest (Quotes so if a directory has a space it still works)
-    -OS-
-    """.replace(
+upload <File> - Upload File Specified
+print <File> - Prints File Specified
+dir - Prints Current Working Directory
+cd <Dir> - Moves Directory
+get <size> <File> - Get Size in Bytes of File Specified
+set bytes <size> - Sets Bytes To Amount Specified
+set timeout <float> - Sets Timeout to Amount Specified
+mkdir <NAME> - Makes a new directory with name specified
+rem <FILE> - Removes File with name specified
+move "<oldDest>" "<File>" "<newDest>" - Moves file to newDest (QUOTES NEEDED)
+copy "<sourceFile>" "<newFile>" - Copy file from source to destination (QUOTES NEEDED)
+rename "<oldName>" "<newName>" - Rename a file or directory (QUOTES NEEDED)
+selfdir - Lists files and directories in the current directory
+sysInfo - Get target machine's system info
+help - Show this help message
+-OS-
+""".replace(
     "   ", ""
 )
 
@@ -235,6 +240,19 @@ class InterfaceApp(ctk.CTk):
             "<Return>", lambda: self.SetTimeout()
         )  # Bind Enter key press
 
+        # Bytes
+        self.bytes_label = ctk.CTkLabel(
+            self.tasks_frame,
+            text="Bytes Amount: (The amount of bytes that can be transmitted through a socket)",
+        )
+        self.bytes_label.pack(fill="both")
+
+        self.bytes_entry = ctk.CTkEntry(self.tasks_frame, placeholder_text="4096...")
+        self.bytes_entry.pack(fill="x")
+        self.bytes_entry.bind(
+            "<Return>", lambda: self.SetBytes()
+        )  # Bind Enter key press
+
         # File Upload
         self.upload_button = ctk.CTkButton(
             self.tasks_frame,
@@ -290,11 +308,11 @@ class InterfaceApp(ctk.CTk):
             text.replace(i, "")
         self.send_command("set timeout " + text)
 
-    """def SetConnectionInterval(self):
-        text = self.connection_interval.get()
+    def SetBytes(self):
+        text = self.bytes_entry.get()
         for i in "qwertyuiopasdfghjklzxcvbnm,./;'[]\\|+=_-)(*&^%$#@!~<>?:{)}" + '"':
             text.replace(i, "")
-        self.send_command("set interval " + text)"""
+        self.send_command("set bytes " + text)
 
     def OnClosed(self):
         with open("IpPortAddr.txt", "w") as f:
