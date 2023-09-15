@@ -10,10 +10,10 @@ When you open the program with a **victim** or ***not*** you can type *"help"* t
 **ADDED MORE COMMANDS**
 ![image](https://github.com/Turnrp/Ultimate-Backdoor/assets/70816015/a27d110b-4c06-419e-9116-c8f4e90d9dc7) <br />
 ### File Explorer
-The File Explorer has been renewed!
-![image](https://github.com/Turnrp/Ultimate-Backdoor/assets/70816015/d53c84ed-c558-4396-9cf2-8cd00f8794e9)
-If you select a file it will show at the top right saying the path to it.
-Once you select a file and either go to a desired location or not, you can press one of the buttons to do that task.
+The File Explorer has been renewed! <br />
+![image](https://github.com/Turnrp/Ultimate-Backdoor/assets/70816015/d53c84ed-c558-4396-9cf2-8cd00f8794e9) <br />
+If you select a file it will show at the top right saying the path to it. <br />
+Once you select a file and either go to a desired location or not, you can press one of the buttons to do that task. <br />
 New Features:
 - Cutting / Moving
 - Copying
