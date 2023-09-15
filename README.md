@@ -17,12 +17,12 @@ Once you select a file and either go to a desired location or not, you can press
 New Features:
 - Cutting / Moving
 - Copying
-- Downloading (Existed But Was Bad)
-- Removing (Also Existed But Was Not In The Explorer)
+- Downloading *(Existed but was bad)*
+- Removing *(Also existed but wasn't in the file explorer yet)*
 ### Tasks (WIP)
-- Timeout Time (Amount of time to wait until it times out)
-- Byte Time (Amount of bytes accepted through socket)
-- File Upload (Upload file of choice)
+- Timeout Time *(Amount of time to wait until it times out)*
+- Byte Time *(Amount of bytes accepted through socket)*
+- File Upload *(Upload file of choice)*
 - *If you have any cool ideas that would be helpful let me know in the issues tab)*
 ![image](https://github.com/Turnrp/Ultimate-Backdoor/assets/70816015/7471e2df-58a5-4a02-8594-551f222506fc) <br />
 ### Side Bar
