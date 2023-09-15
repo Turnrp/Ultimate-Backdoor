@@ -26,7 +26,7 @@ New Features:
 - *If you have any cool ideas that would be **helpful** let me know in the **issues tab***
 ![image](https://github.com/Turnrp/Ultimate-Backdoor/assets/70816015/7471e2df-58a5-4a02-8594-551f222506fc) <br />
 ### Side Bar
-![268121563-d53c84ed-c558-4396-9cf2-8cd00f8794e9 (1)](https://github.com/Turnrp/Ultimate-Backdoor/assets/70816015/657981ec-98d0-4596-b864-99680d0c91c1) <br />
+![268121563-d53c84ed-c558-4396-9cf2-8cd00f8794e9 (1)](https://github.com/Turnrp/Ultimate-Backdoor/assets/70816015/657981ec-98d0-4596-b864-99680d0c91c1)
 This is where you can switch tabs with ease, change your appearance mode to either "Dark" *Default*, "Light" *Your crazy*, or "System" *Defaults to your system's appearance*, and Exit which is self-explanatory and does the same thing the **X** does. <br />
 ### Known Bugs / Issues
 - The command code needs to be reworked but works well; it is just confusing in the code.
