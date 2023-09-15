@@ -343,8 +343,9 @@ class InterfaceApp(ctk.CTk):
             self.UpdateFileExplorer()
 
     def download_file(self, mama="", mia=""):
+        print("Downloading")
         file = self.RawCommand("download " + self.selected_file)
-        with open(self.selected_file, "w") as f:
+        with open(self.selected_file.split("\\")[-1], "w") as f:
             f.write(file.replace("file: ", "", 1).split(" : ", 1)[1])
 
     def send_command(self, command: str):
