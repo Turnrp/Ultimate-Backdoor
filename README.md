@@ -1,19 +1,19 @@
 # Ultimate-Backdoor
 
-![Ultimate Backdoor Logo](https://github.com/Turnrp/Ultimate-Backdoor/assets/70816015/ad7b933f-f2d3-4b2d-bf0e-81ab590278b3)
+![Ultimate Backdoor Logo](https://github.com/Turnrp/Ultimate-Backdoor/assets/70816015/c10cc13a-06cc-4ca3-8496-a4c5d5672cba)
 
 ## Instructions
 
-1. **Installation**: Ensure that you have successfully installed and executed the program on the victim's computer.
+1. **Installation**: Ensure you have successfully installed and executed the program on the victim's computer.
 
-2. **Remote Access**: Once it's up and running, you can access it remotely by setting up a server and necessary configurations.
+2. **Remote Access**: Once it's up and running, access it remotely by setting up a server and necessary configurations.
 
 3. **Ethical Considerations**: In ethical situations, consider adding the program to the system startup and creating an executable using ***pyinstaller*** for convenience.
 
 ## Features
 
 ### Console
-The program boasts a versatile console where you can execute a wide range of commands. Simply type *"help"* to explore all available commands. We've also added more commands for your convenience.
+The program offers a versatile console for executing a wide range of commands. Simply type *"help"* to explore all available commands. More commands have been added for your convenience.
 
 ![Console](https://github.com/Turnrp/Ultimate-Backdoor/assets/70816015/a27d110b-4c06-419e-9116-c8f4e90d9dc7)
 
@@ -22,12 +22,12 @@ The File Explorer has undergone significant improvements, making file management
 
 ![File Explorer](https://github.com/Turnrp/Ultimate-Backdoor/assets/70816015/d53c84ed-c558-4396-9cf2-8cd00f8794e9)
 
-- **File Selection**: When you select a file, its path is displayed in the top right corner.
-- **New Features**:
+- **File Selection**: When selecting a file, its path is displayed in the top right corner.
+- **Usage**: After selecting a file, you can choose one of the following tools:
   - Cutting / Moving
   - Copying
-  - Downloading (Improved)
-  - Removing (Newly added)
+  - Downloading
+  - Removing
 
 ### Tasks
 Customize various operational aspects with ease:
@@ -35,12 +35,12 @@ Customize various operational aspects with ease:
 - **Byte Time**: Set the maximum bytes accepted through the socket.
 - **File Upload**: Upload a file of your choice.
 
-We welcome your innovative ideas in the **issues tab** for further improvements.
+Ideas/Features are welcome in the **issues tab** for further improvements.
 
 ![Tasks](https://github.com/Turnrp/Ultimate-Backdoor/assets/70816015/7471e2df-58a5-4a02-8594-551f222506fc)
 
 ### Side Bar
-The sidebar provides quick access to essential features:
+The Sidebar provides quick access to essential features:
 
 ![Sidebar](https://github.com/Turnrp/Ultimate-Backdoor/assets/70816015/ad7b933f-f2d3-4b2d-bf0e-81ab590278b3)
 
@@ -49,8 +49,8 @@ The sidebar provides quick access to essential features:
 - **Appearance Modes**: Switch between *Dark*, *Light*, or *System* modes for a personalized experience.
 
 ## Known Bugs / Issues
-We are aware of some minor issues:
+Aware of some minor issues:
 - The command code may benefit from some refinement, but it currently functions well.
-- If you encounter ***ANY*** issues, please don't hesitate to report them. We are committed to delivering the best user experience.
+- If you encounter ***ANY*** issues, please don't hesitate to report them. Committed to delivering the best user experience.
 
 Feel free to contribute and make this project even better!
