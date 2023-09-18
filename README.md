@@ -1,34 +1,56 @@
 # Ultimate-Backdoor
+
+![Ultimate Backdoor Logo](https://github.com/Turnrp/Ultimate-Backdoor/assets/70816015/ad7b933f-f2d3-4b2d-bf0e-81ab590278b3)
+
 ## Instructions
-1. Make sure you **installed and ran** the file on the victim's computer
-2. If it's running you can access it anywhere if you made a server and stuff for it.
-3. I would **recommend** in a real *"ethical"* situation you would need to put it in **startup** and probably make it a **exe** using ***pyinstaller***
+
+1. **Installation**: Ensure that you have successfully installed and executed the program on the victim's computer.
+
+2. **Remote Access**: Once it's up and running, you can access it remotely by setting up a server and necessary configurations.
+
+3. **Ethical Considerations**: In ethical situations, consider adding the program to the system startup and creating an executable using ***pyinstaller*** for convenience.
 
 ## Features
-### Console
-When you open the program with a **victim** or ***not*** you can type *"help"* to get *all* the commands <br />
-**ADDED MORE COMMANDS** <br />
-![image](https://github.com/Turnrp/Ultimate-Backdoor/assets/70816015/a27d110b-4c06-419e-9116-c8f4e90d9dc7) <br />
-### File Explorer
-The File Explorer has been renewed! <br />
-![image](https://github.com/Turnrp/Ultimate-Backdoor/assets/70816015/d53c84ed-c558-4396-9cf2-8cd00f8794e9) <br />
-If you select a file it will show at the top right saying the path to it. <br />
-Once you select a file and either go to a desired location or not, you can press one of the buttons to do that task. <br />
-New Features:
-- Cutting / Moving
-- Copying
-- Downloading *(Existed but was bad)*
-- Removing *(Also existed but wasn't in the file explorer yet)*
-### Tasks
-- Timeout Time *(Amount of time to wait until it times out)*
-- Byte Time *(Amount of bytes accepted through socket)*
-- File Upload *(Upload file of choice)*
-- *If you have any cool ideas that would be **helpful** let me know in the **issues tab***
-![image](https://github.com/Turnrp/Ultimate-Backdoor/assets/70816015/7471e2df-58a5-4a02-8594-551f222506fc) <br />
-### Side Bar
-![268121563-d53c84ed-c558-4396-9cf2-8cd00f8794e9 (1)](https://github.com/Turnrp/Ultimate-Backdoor/assets/70816015/657981ec-98d0-4596-b864-99680d0c91c1) <br />
-This is where you can switch tabs with ease, change your appearance mode to either "Dark" *Default*, "Light" *Your crazy*, or "System" *Defaults to your system's appearance*, and Exit which is self-explanatory and does the same thing the **X** does.
 
-### Known Bugs / Issues
-- The command code needs to be reworked but works well; it is just confusing in the code.
-- If you encounter ***ANY*** issues please let me know I wanna make this the best I can.
+### Console
+The program boasts a versatile console where you can execute a wide range of commands. Simply type *"help"* to explore all available commands. We've also added more commands for your convenience.
+
+![Console](https://github.com/Turnrp/Ultimate-Backdoor/assets/70816015/a27d110b-4c06-419e-9116-c8f4e90d9dc7)
+
+### File Explorer
+The File Explorer has undergone significant improvements, making file management easier than ever.
+
+![File Explorer](https://github.com/Turnrp/Ultimate-Backdoor/assets/70816015/d53c84ed-c558-4396-9cf2-8cd00f8794e9)
+
+- **File Selection**: When you select a file, its path is displayed in the top right corner.
+- **New Features**:
+  - Cutting / Moving
+  - Copying
+  - Downloading (Improved)
+  - Removing (Newly added)
+
+### Tasks
+Customize various operational aspects with ease:
+- **Timeout Time**: Define the time until timeout.
+- **Byte Time**: Set the maximum bytes accepted through the socket.
+- **File Upload**: Upload a file of your choice.
+
+We welcome your innovative ideas in the **issues tab** for further improvements.
+
+![Tasks](https://github.com/Turnrp/Ultimate-Backdoor/assets/70816015/7471e2df-58a5-4a02-8594-551f222506fc)
+
+### Side Bar
+The sidebar provides quick access to essential features:
+
+![Sidebar](https://github.com/Turnrp/Ultimate-Backdoor/assets/70816015/ad7b933f-f2d3-4b2d-bf0e-81ab590278b3)
+
+- **Target Configuration**: Easily change your target to the *victim's PC*.
+- **Tab Management**: Organize and customize tabs to your liking.
+- **Appearance Modes**: Switch between *Dark*, *Light*, or *System* modes for a personalized experience.
+
+## Known Bugs / Issues
+We are aware of some minor issues:
+- The command code may benefit from some refinement, but it currently functions well.
+- If you encounter ***ANY*** issues, please don't hesitate to report them. We are committed to delivering the best user experience.
+
+Feel free to contribute and make this project even better!
