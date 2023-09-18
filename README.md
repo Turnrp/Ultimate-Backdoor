@@ -42,11 +42,19 @@ Ideas/Features are welcome in the **issues tab** for further improvements.
 ### Side Bar
 The Sidebar provides quick access to essential features:
 
-![Sidebar](https://github.com/Turnrp/Ultimate-Backdoor/assets/70816015/ad7b933f-f2d3-4b2d-bf0e-81ab590278b3)
-
 - **Target Configuration**: Easily change your target to the *victim's PC*.
+
+![Target Configuration](https://github.com/Turnrp/Ultimate-Backdoor/assets/70816015/ad7b933f-f2d3-4b2d-bf0e-81ab590278b3)
+
 - **Tab Management**: Organize and customize tabs to your liking.
+
+![Tab Management](https://github.com/Turnrp/Ultimate-Backdoor/assets/70816015/18c8f2a2-775d-405e-aa35-5efb58b70cde)
+
+
 - **Appearance Modes**: Switch between *Dark*, *Light*, or *System* modes for a personalized experience.
+
+![Appearance Modes](https://github.com/Turnrp/Ultimate-Backdoor/assets/70816015/c6ed11d4-0b8a-4d00-ad3e-91d52c2690d7)
+
 
 ## Known Bugs / Issues
 Aware of some minor issues:
